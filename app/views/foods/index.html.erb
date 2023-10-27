@@ -1,0 +1,27 @@
+<% provide(:title, 'Search Results') %>
+
+<h1>Search Results</h1>
+
+<p>Total results: <%= @total_results %> (sweet potatoes should find more than 30,000 results)</p>
+
+<% @foods.present? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>GTIN/UPC Code</th>
+        <th>Food Description</th>
+        <th>Brand Owner</th>
+        <th>Ingredients</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food[:gtinUpc] %></td>
+          <td><%= food[:description] %></td>
+          <td><%= food[:brandOwner] %></td>
+          <td><%= food[:ingredients] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
